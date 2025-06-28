@@ -154,7 +154,7 @@ export function ProjectFilters() {
         </div>
       </div>
 
-      {/* Month Filter (only show if year is selected) */}
+      {/* Modern Month Filter (only show if year is selected) */}
       <AnimatePresence>
         {filters.year && (
           <motion.div
@@ -162,20 +162,46 @@ export function ProjectFilters() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="space-y-3"
+            className="space-y-4"
           >
-            <h3 className="font-medium text-gray-900">Months in {filters.year}</h3>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
-              {months.map((month) => (
-                <FilterChip
-                  key={month.value}
-                  label={month.label.slice(0, 3)}
-                  active={filters.month === month.value}
-                  onClick={() => handleMonthChange(month.value)}
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium text-gray-900">Months in {filters.year}</h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setFilters({ month: null })}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                Clear month
+              </Button>
+            </div>
+            
+            {/* Modern horizontal scrollable month filter */}
+            <div className="relative">
+              <div className="flex space-x-2 overflow-x-auto scrollbar-hide pb-2">
+                <Button
+                  variant={filters.month === null ? "default" : "outline"}
                   size="sm"
-                  className="justify-center"
-                />
-              ))}
+                  onClick={() => setFilters({ month: null })}
+                  className="whitespace-nowrap flex-shrink-0 min-w-16"
+                >
+                  All
+                </Button>
+                {months.map((month) => (
+                  <Button
+                    key={month.value}
+                    variant={filters.month === month.value ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => handleMonthChange(month.value)}
+                    className="whitespace-nowrap flex-shrink-0 min-w-20"
+                  >
+                    {month.label}
+                  </Button>
+                ))}
+              </div>
+              
+              {/* Gradient fade for scroll indication */}
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
             </div>
           </motion.div>
         )}

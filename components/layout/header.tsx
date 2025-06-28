@@ -25,7 +25,18 @@ const navigation = [
     ]
   },
   { name: 'វីដេអូ', name_en: 'Videos', href: '/videos' },
-  { name: 'គម្រោង', name_en: 'Projects', href: '/projects' },
+  { 
+    name: 'គម្រោង', 
+    name_en: 'Projects', 
+    href: '/projects',
+    submenu: [
+      { name: 'គម្រោងទាំងអស់', name_en: 'All Projects', href: '/projects' },
+      { name: 'សហគមន៍', name_en: 'Community', href: '/projects?category=community' },
+      { name: 'ការអប់រំ', name_en: 'Education', href: '/projects?category=education' },
+      { name: 'វប្បធម៌', name_en: 'Culture', href: '/projects?category=culture' },
+      { name: 'កីឡា', name_en: 'Sports', href: '/projects?category=sports' },
+    ]
+  },
   { name: 'ទំនាក់ទំនង', name_en: 'Contact', href: '/contact' },
 ];
 
@@ -197,37 +208,6 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-
-      {/* Project Categories Bar (only show on projects page) */}
-      <AnimatePresence>
-        {isProjectsPage && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="border-t border-gray-200/20 bg-white/90 backdrop-blur-sm"
-          >
-            <div className="container py-3">
-              <div className="flex items-center space-x-2 overflow-x-auto scrollbar-hide">
-                <span className="text-sm font-medium text-gray-600 whitespace-nowrap mr-2">
-                  Categories:
-                </span>
-                {projectCategories.slice(0, 6).map((category) => (
-                  <FilterChip
-                    key={category.id}
-                    label={`${category.name} (${category.count})`}
-                    onClick={() => handleCategoryFilter(category.id)}
-                    size="sm"
-                    variant="outline"
-                    className="whitespace-nowrap"
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.header>
   );
 }
