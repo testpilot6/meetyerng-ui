@@ -108,12 +108,6 @@ export function Header() {
                           key={subItem.href}
                           href={subItem.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-khmer-gold first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
-                          onClick={() => {
-                            if (item.name_en === 'Projects' && subItem.href.includes('category=')) {
-                              const category = subItem.href.split('category=')[1];
-                              handleCategoryFilter(category);
-                            }
-                          }}
                         >
                           {subItem.name_en}
                         </Link>
@@ -142,21 +136,6 @@ export function Header() {
               </div>
             ))}
           </nav>
-
-          {/* Project Category Filters (only show on projects page) */}
-          {isProjectsPage && (
-            <div className="hidden xl:flex items-center space-x-2 ml-8">
-              {projectCategories.slice(0, 4).map((category) => (
-                <FilterChip
-                  key={category.id}
-                  label={category.name}
-                  onClick={() => handleCategoryFilter(category.id)}
-                  size="sm"
-                  variant="outline"
-                />
-              ))}
-            </div>
-          )}
 
           {/* CTA Button */}
           <div className="hidden lg:block">
@@ -206,13 +185,7 @@ export function Header() {
                               key={subItem.href}
                               href={subItem.href}
                               className="block text-sm text-gray-600 hover:text-khmer-gold py-1 transition-colors duration-200"
-                              onClick={() => {
-                                setIsMobileMenuOpen(false);
-                                if (item.name_en === 'Projects' && subItem.href.includes('category=')) {
-                                  const category = subItem.href.split('category=')[1];
-                                  handleCategoryFilter(category);
-                                }
-                              }}
+                              onClick={() => setIsMobileMenuOpen(false)}
                             >
                               {subItem.name}
                             </Link>

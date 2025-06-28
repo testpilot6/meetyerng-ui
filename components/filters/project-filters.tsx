@@ -154,7 +154,7 @@ export function ProjectFilters() {
         </div>
       </div>
 
-      {/* Modern Month Filter (inspired by the image) */}
+      {/* Modern Month Filter (only show if year is selected) */}
       <AnimatePresence>
         {filters.year && (
           <motion.div
@@ -176,54 +176,33 @@ export function ProjectFilters() {
               </Button>
             </div>
             
-            {/* Modern horizontal scrollable month filter - inspired by the image */}
-            <div className="relative bg-gray-50 rounded-lg p-4">
-              <div className="flex space-x-3 overflow-x-auto scrollbar-hide pb-2">
-                <motion.button
-                  className={`whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                    filters.month === null
-                      ? 'bg-khmer-gold text-white shadow-sm'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
+            {/* Modern horizontal scrollable month filter */}
+            <div className="relative">
+              <div className="flex space-x-2 overflow-x-auto scrollbar-hide pb-2">
+                <Button
+                  variant={filters.month === null ? "default" : "outline"}
+                  size="sm"
                   onClick={() => setFilters({ month: null })}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="whitespace-nowrap flex-shrink-0 min-w-16"
                 >
                   All
-                </motion.button>
+                </Button>
                 {months.map((month) => (
-                  <motion.button
+                  <Button
                     key={month.value}
-                    className={`whitespace-nowrap flex-shrink-0 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                      filters.month === month.value
-                        ? 'bg-khmer-gold text-white shadow-sm'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
+                    variant={filters.month === month.value ? "default" : "outline"}
+                    size="sm"
                     onClick={() => handleMonthChange(month.value)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    className="whitespace-nowrap flex-shrink-0 min-w-20"
                   >
                     {month.label}
-                  </motion.button>
+                  </Button>
                 ))}
               </div>
               
               {/* Gradient fade for scroll indication */}
-              <div className="absolute right-4 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
             </div>
-            
-            {/* Active month indicator */}
-            {filters.month && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center p-3 bg-khmer-gold/10 rounded-lg border border-khmer-gold/20"
-              >
-                <span className="text-sm font-medium text-khmer-gold">
-                  Showing projects from {months.find(m => m.value === filters.month)?.label} {filters.year}
-                </span>
-              </motion.div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>
