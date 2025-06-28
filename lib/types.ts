@@ -29,7 +29,7 @@ export interface Video {
 }
 
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   title_en: string;
   description: string;
@@ -37,11 +37,37 @@ export interface Project {
   category: string;
   status: 'ongoing' | 'completed';
   startDate: string;
+  endDate?: string;
   location: string;
   beneficiaries: number;
   volunteers: number;
   images: string[];
   featured: boolean;
+  slug: string;
+  tags: string[];
+  budget?: number;
+  budgetUsed?: number;
+  duration?: string;
+  objectives?: string[];
+  achievements?: string[];
+  team?: Array<{
+    name: string;
+    image: string;
+    role: string;
+  }>;
+  testimonials?: Array<{
+    text: string;
+    author: string;
+    role: string;
+    image: string;
+  }>;
+  impact?: Record<string, number>;
+  milestones?: Array<{
+    title: string;
+    description: string;
+    date: string;
+    completed: boolean;
+  }>;
 }
 
 export interface GalleryItem {
