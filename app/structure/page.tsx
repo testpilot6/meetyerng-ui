@@ -20,7 +20,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { PersonCard } from "@/components/ui/person-card";
-import { PersonDetailModal } from "@/components/person/person-detail-modal";
 import { usePersonStore, Person } from "@/lib/stores/person-store";
 
 // Mock data - in production this would come from an API
@@ -275,9 +274,6 @@ export default function StructurePage() {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedDepartment, setSelectedDepartment] = useState<string>("all");
 	const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	
-	const { selectedPerson, setSelectedPerson } = usePersonStore();
 
 	const toggleSection = (sectionId: string) => {
 		setExpandedSections((prev) =>
@@ -307,16 +303,6 @@ export default function StructurePage() {
 		(total, section) => total + section.members.length,
 		0
 	);
-
-	const handlePersonClick = (person: Person) => {
-		setSelectedPerson(person);
-		setIsModalOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setIsModalOpen(false);
-		setSelectedPerson(null);
-	};
 
 	return (
 		<div className="min-h-screen bg-gray-50">
@@ -532,7 +518,6 @@ export default function StructurePage() {
 																<PersonCard
 																	key={member.id}
 																	person={member}
-																	onViewDetails={handlePersonClick}
 																	variant="detailed"
 																	index={memberIndex}
 																/>
@@ -567,13 +552,6 @@ export default function StructurePage() {
 					)}
 				</div>
 			</section>
-
-			{/* Person Detail Modal */}
-			<PersonDetailModal
-				person={selectedPerson}
-				open={isModalOpen}
-				onClose={handleCloseModal}
-			/>
 		</div>
 	);
 }
