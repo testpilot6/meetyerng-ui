@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { FilterChip } from '@/components/ui/filter-chip';
+import { useProjectStore } from '@/lib/stores/project-store';
 import { cn } from '@/lib/utils';
 
 const navigation = [
@@ -31,6 +33,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  
+  const { getProjectCategories, setFilters } = useProjectStore();
+  const projectCategories = getProjectCategories();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +45,12 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleCategoryFilter = (categoryId: string) => {
+    setFilters({ category: categoryId });
+  };
+
+  const isProjectsPage = pathname === '/projects';
 
   return (
     <motion.header
@@ -186,6 +197,37 @@ export function Header() {
           </Sheet>
         </div>
       </div>
+
+      {/* Project Categories Bar (only show on projects page) */}
+      <AnimatePresence>
+        {isProjectsPage && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="border-t border-gray-200/20 bg-white/90 backdrop-blur-sm"
+          >
+            <div className="container py-3">
+              <div className="flex items-center space-x-2 overflow-x-auto scrollbar-hide">
+                <span className="text-sm font-medium text-gray-600 whitespace-nowrap mr-2">
+                  Categories:
+                </span>
+                {projectCategories.slice(0, 6).map((category) => (
+                  <FilterChip
+                    key={category.id}
+                    label={`${category.name} (${category.count})`}
+                    onClick={() => handleCategoryFilter(category.id)}
+                    size="sm"
+                    variant="outline"
+                    className="whitespace-nowrap"
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
