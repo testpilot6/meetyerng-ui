@@ -14,26 +14,26 @@ interface CTAButtonProps {
   external?: boolean;
 }
 
-export function CTAButton({
-  href,
-  children,
-  variant = 'default',
-  size = 'md',
+export function CTAButton({ 
+  href, 
+  children, 
+  variant = 'default', 
+  size = 'md', 
   className,
-  external = false,
+  external = false 
 }: CTAButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500";
+  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900";
   
   const variants = {
-    default: "bg-gradient-to-r from-primary-800 to-accent-500 text-white hover:from-primary-900 hover:to-accent-600 shadow-lg hover:shadow-xl",
-    outline: "border-2 border-primary-800 text-primary-800 hover:bg-primary-800 hover:text-white",
-    ghost: "text-primary-800 hover:bg-primary-50",
+    default: "bg-primary-900 text-white hover:bg-primary-950 shadow-lg hover:shadow-xl",
+    outline: "border-2 border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white",
+    ghost: "text-primary-900 hover:bg-primary-100"
   };
   
   const sizes = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
+    lg: "px-8 py-4 text-lg"
   };
 
   const buttonClasses = cn(

@@ -41,9 +41,9 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com', color: 'hover:text-blue-600' },
-  { name: 'Youtube', icon: Youtube, href: 'https://youtube.com', color: 'hover:text-red-600' },
-  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-600' },
+  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com', color: 'hover:text-blue-400' },
+  { name: 'Youtube', icon: Youtube, href: 'https://youtube.com', color: 'hover:text-red-400' },
+  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: 'hover:text-pink-400' },
 ];
 
 const contactInfo = [
@@ -66,7 +66,7 @@ export function Footer() {
               className="space-y-4"
             >
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-primary-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <span className="text-white font-bold text-xl">M</span>
                 </div>
                 <div>
@@ -163,9 +163,9 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-primary-800 border border-primary-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 bg-primary-800 border border-primary-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-transparent"
               />
-              <Button className="bg-gradient-to-r from-accent-500 to-primary-600 hover:from-accent-600 hover:to-primary-700">
+              <Button className="bg-primary-900 text-white hover:bg-primary-950 border border-accent-400">
                 Subscribe
               </Button>
             </div>

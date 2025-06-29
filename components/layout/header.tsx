@@ -68,8 +68,8 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-neutral-200/20"
-          : "bg-transparent"
+          ? "bg-primary-900/95 backdrop-blur-md shadow-lg border-b border-primary-800/20"
+          : "bg-primary-900"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -79,14 +79,14 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-800 to-accent-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <span className="text-white font-bold text-lg lg:text-xl">M</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl lg:text-2xl font-bold gradient-text">
+              <h1 className="text-xl lg:text-2xl font-bold text-white">
                 Mettyerng
               </h1>
-              <p className="text-xs lg:text-sm text-gray-600">
+              <p className="text-xs lg:text-sm text-gray-300">
                 ក្រុមអ្នកស្រឡាញ់សង្គម
               </p>
             </div>
@@ -98,7 +98,7 @@ export function Header() {
               <div key={item.href} className="relative group">
                 {item.submenu ? (
                   <>
-                    <button className="flex items-center space-x-1 text-gray-700 hover:text-primary-800 transition-colors duration-200 py-2">
+                    <button className="flex items-center space-x-1 text-white hover:text-accent-400 transition-colors duration-200 py-2">
                       <span className="font-medium">{item.name_en}</span>
                       <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
                     </button>
@@ -107,7 +107,7 @@ export function Header() {
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-neutral-50 hover:text-primary-800 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-text-primary hover:bg-neutral-100 hover:text-primary-900 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
                         >
                           {subItem.name_en}
                         </Link>
@@ -118,14 +118,14 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "text-gray-700 hover:text-primary-800 transition-colors duration-200 font-medium relative py-2",
-                      pathname === item.href && "text-primary-800"
+                      "text-white hover:text-accent-400 transition-colors duration-200 font-medium relative py-2",
+                      pathname === item.href && "text-accent-400"
                     )}
                   >
                     {item.name_en}
                     {pathname === item.href && (
                       <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-800"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-400"
                         layoutId="activeTab"
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -139,7 +139,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-gradient-to-r from-primary-800 to-accent-500 hover:from-primary-900 hover:to-accent-600">
+            <Button asChild className="bg-primary-900 text-white hover:bg-primary-950 border border-accent-400 hover:border-accent-300">
               <Link href="/contact">ចូលរួម Join Us</Link>
             </Button>
           </div>
@@ -147,18 +147,18 @@ export function Header() {
           {/* Mobile Menu Button */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-white hover:text-accent-400 hover:bg-primary-800">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm">
+            <SheetContent side="right" className="w-full max-w-sm bg-white">
               <div className="flex flex-col space-y-6 mt-6">
                 <div className="flex items-center space-x-3 pb-6 border-b border-neutral-200">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary-800 to-accent-500 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-lg">M</span>
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold gradient-text">Mettyerng</h2>
+                    <h2 className="text-xl font-bold text-primary-900">Mettyerng</h2>
                     <p className="text-sm text-gray-600">ក្រុមអ្នកស្រឡាញ់សង្គម</p>
                   </div>
                 </div>
@@ -171,8 +171,8 @@ export function Header() {
                         className={cn(
                           "block text-lg font-medium py-2 transition-colors duration-200",
                           pathname === item.href
-                            ? "text-primary-800"
-                            : "text-gray-700 hover:text-primary-800"
+                            ? "text-primary-900"
+                            : "text-text-primary hover:text-primary-900"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -184,7 +184,7 @@ export function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="block text-sm text-gray-600 hover:text-primary-800 py-1 transition-colors duration-200"
+                              className="block text-sm text-gray-600 hover:text-primary-900 py-1 transition-colors duration-200"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               {subItem.name}
@@ -197,7 +197,7 @@ export function Header() {
                 </nav>
                 
                 <div className="pt-6 border-t border-neutral-200">
-                  <Button asChild className="w-full bg-gradient-to-r from-primary-800 to-accent-500">
+                  <Button asChild className="w-full bg-primary-900 text-white hover:bg-primary-950">
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                       ចូលរួម Join Us
                     </Link>

@@ -72,10 +72,10 @@ export default function HomePage() {
 			<HeroCarousel />
 
 			{/* Stats Section */}
-			<section className="section-padding bg-neutral-50">
+			<section className="section-padding bg-neutral-100">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+						<h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
 							ជោគជ័យរបស់យើង
 							<span className="block text-2xl md:text-3xl gradient-text mt-2">
 								Our Achievements
@@ -101,7 +101,7 @@ export default function HomePage() {
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 						<AnimatedSection direction="left">
 							<div className="space-y-6">
-								<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+								<h2 className="text-3xl md:text-4xl font-bold text-text-primary">
 									បេសកកម្មរបស់យើង
 									<span className="block text-2xl md:text-3xl gradient-text mt-2">
 										Our Mission
@@ -124,7 +124,7 @@ export default function HomePage() {
 										<ArrowRight className="ml-2 w-5 h-5" />
 									</CTAButton>
 
-									<Button variant="outline" size="lg" asChild className="border-primary-800 text-primary-800 hover:bg-primary-800 hover:text-white">
+									<Button variant="outline" size="lg" asChild className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
 										<a href="/contact" className="flex items-center">
 											<Heart className="mr-2 w-5 h-5" />
 											Join Our Mission
@@ -151,14 +151,14 @@ export default function HomePage() {
 										whileTap={{ scale: 0.95 }}
 									>
 										<div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-											<Play className="w-6 h-6 text-primary-800 ml-1" />
+											<Play className="w-6 h-6 text-primary-900 ml-1" />
 										</div>
 									</motion.button>
 								</div>
 
 								{/* Floating elements */}
 								<motion.div
-									className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500/20 rounded-full blur-2xl"
+									className="absolute -top-4 -right-4 w-24 h-24 bg-accent-400/20 rounded-full blur-2xl"
 									animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
 									transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
 								/>
@@ -179,10 +179,10 @@ export default function HomePage() {
 			</section>
 
 			{/* Features Section */}
-			<section className="section-padding bg-neutral-50">
+			<section className="section-padding bg-neutral-100">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+						<h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
 							វិស័យសកម្មភាព
 							<span className="block text-2xl md:text-3xl gradient-text mt-2">
 								Our Focus Areas
@@ -200,7 +200,7 @@ export default function HomePage() {
 								delay={index * 0.2}
 								className="group"
 							>
-								<Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+								<Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 bg-white">
 									<div className="aspect-video overflow-hidden">
 										<img
 											src={feature.image}
@@ -209,7 +209,7 @@ export default function HomePage() {
 										/>
 									</div>
 									<CardContent className="p-6">
-										<h3 className="text-xl font-bold text-gray-900 mb-3 gradient-text">
+										<h3 className="text-xl font-bold text-text-primary mb-3 gradient-text">
 											{feature.title}
 										</h3>
 										<p className="text-gray-600 leading-relaxed mb-4">
@@ -218,7 +218,7 @@ export default function HomePage() {
 										<Button
 											variant="ghost"
 											asChild
-											className="p-0 h-auto text-primary-800 hover:text-accent-500"
+											className="p-0 h-auto text-primary-900 hover:text-accent-400"
 										>
 											<a
 												href={feature.link}
@@ -268,7 +268,7 @@ export default function HomePage() {
 							<CTAButton
 								href="/contact"
 								size="lg"
-								className="bg-white text-primary-800 hover:bg-neutral-100 text-lg px-8 py-4"
+								className="bg-white text-primary-900 hover:bg-neutral-100 text-lg px-8 py-4"
 							>
 								<Heart className="mr-2 w-6 h-6" />
 								Become a Volunteer
@@ -278,7 +278,7 @@ export default function HomePage() {
 								href="/projects"
 								variant="outline"
 								size="lg"
-								className="border-white text-white hover:bg-white hover:text-primary-800 text-lg px-8 py-4"
+								className="border-white text-white hover:bg-white hover:text-primary-900 text-lg px-8 py-4"
 							>
 								<Award className="mr-2 w-6 h-6" />
 								View Our Projects

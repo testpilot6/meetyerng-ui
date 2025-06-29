@@ -12,7 +12,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)',
+        'hero-pattern': 'linear-gradient(135deg, rgba(21, 61, 111, 0.1) 0%, rgba(111, 191, 115, 0.1) 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -22,65 +22,65 @@ const config: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        // New color scheme
+        // Exact color specifications from the table
         primary: {
-          DEFAULT: '#1E40AF', // Deep Blue
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          200: '#BFDBFE',
-          300: '#93C5FD',
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
-          800: '#1E40AF', // Primary Deep Blue
-          900: '#1E3A8A',
-          950: '#172554',
+          DEFAULT: '#153D6F', // Header/Footer background
+          50: '#F0F4F8',
+          100: '#D9E2EC',
+          200: '#BCCCDC',
+          300: '#9FB3C8',
+          400: '#829AB1',
+          500: '#627D98',
+          600: '#486581',
+          700: '#334E68',
+          800: '#243B53',
+          900: '#153D6F', // Main primary color
+          950: '#0F2C50', // Button hover
         },
         secondary: {
-          DEFAULT: '#FFFFFF', // Clean White
-          50: '#FAFAFA',
-          100: '#F5F5F5',
-          200: '#E5E5E5',
-          300: '#D4D4D4',
-          400: '#A3A3A3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+          DEFAULT: '#FFFFFF', // Main content background
+          50: '#FFFFFF',
+          100: '#F5F5F5', // Secondary card background
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#616161',
+          800: '#424242',
+          900: '#212121',
         },
         accent: {
-          DEFAULT: '#14B8A6', // Muted Teal
-          50: '#F0FDFA',
-          100: '#CCFBF1',
-          200: '#99F6E4',
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#14B8A6', // Primary Accent
-          600: '#0D9488',
-          700: '#0F766E',
-          800: '#115E59',
-          900: '#134E4A',
-          950: '#042F2E',
+          DEFAULT: '#6FBF73', // Accent/Action color (optional green)
+          50: '#F0F9F1',
+          100: '#DCF2DD',
+          200: '#BBE5BD',
+          300: '#8DD491',
+          400: '#6FBF73', // Main accent color
+          500: '#4CAF50',
+          600: '#43A047',
+          700: '#388E3C',
+          800: '#2E7D32',
+          900: '#1B5E20',
         },
         neutral: {
-          DEFAULT: '#F3F4F6', // Light Gray
-          50: '#F9FAFB',
-          100: '#F3F4F6', // Primary Neutral
-          200: '#E5E7EB',
-          300: '#D1D5DB',
-          400: '#9CA3AF',
-          500: '#6B7280',
-          600: '#4B5563',
-          700: '#374151',
-          800: '#1F2937',
-          900: '#111827',
+          DEFAULT: '#F5F5F5', // Secondary card background
+          50: '#FAFAFA',
+          100: '#F5F5F5', // Secondary card
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#616161',
+          800: '#424242',
+          900: '#212121',
         },
-        // Legacy support - map old colors to new scheme
-        'deep-blue': '#1E40AF',
-        'soft-green': '#10B981',
-        'muted-teal': '#14B8A6',
+        text: {
+          primary: '#1F1F1F', // Main content text
+          secondary: '#FFFFFF', // Header/Footer text
+          muted: '#757575',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',

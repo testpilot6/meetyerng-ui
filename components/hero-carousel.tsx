@@ -143,7 +143,7 @@ export function HeroCarousel() {
                         <CTAButton
                           href={slide.ctaLink}
                           size="lg"
-                          className="group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-700 to-accent-500 hover:from-primary-800 hover:to-accent-600"
+                          className="group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-primary-900 text-white hover:bg-primary-950"
                         >
                           {slide.cta}
                           <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -153,7 +153,7 @@ export function HeroCarousel() {
                           href="/videos"
                           variant="outline"
                           size="lg"
-                          className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-gray-900 group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                          className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-primary-900 group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
                         >
                           <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
                           Watch Video
@@ -166,7 +166,7 @@ export function HeroCarousel() {
 
               {/* Floating Elements */}
               <motion.div
-                className="absolute top-1/4 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-accent-500/20 rounded-full blur-xl"
+                className="absolute top-1/4 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-accent-400/20 rounded-full blur-xl"
                 animate={{ 
                   y: [0, -20, 0],
                   scale: [1, 1.1, 1]
