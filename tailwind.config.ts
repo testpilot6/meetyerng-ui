@@ -23,7 +23,55 @@ const config: Config = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         
-        // Enhanced Primary Color System - Deep Blue
+        // Khmer Gold
+        'khmer-gold': {
+          DEFAULT: '#D4AF37',
+          50: '#FAF7E8',
+          100: '#F5EFD1',
+          200: '#EBDFA3',
+          300: '#E1CF75',
+          400: '#D7BF47',
+          500: '#D4AF37',
+          600: '#B8962C',
+          700: '#9C7D21',
+          800: '#806416',
+          900: '#644B0B',
+          950: '#4A3808',
+        },
+        
+        // Khmer Red
+        'khmer-red': {
+          DEFAULT: '#C41E3A',
+          50: '#F8E6EA',
+          100: '#F1CDD5',
+          200: '#E39BAB',
+          300: '#D56981',
+          400: '#C73757',
+          500: '#C41E3A',
+          600: '#A61830',
+          700: '#881226',
+          800: '#6A0C1C',
+          900: '#4C0612',
+          950: '#36040D',
+        },
+        
+        // Khmer Blue
+        'khmer-blue': {
+          DEFAULT: '#1E40AF',
+          50: '#EBF2FF',
+          100: '#D6E4FF',
+          200: '#B5CCFF',
+          300: '#83A9FF',
+          400: '#4A7CFF',
+          500: '#1E4FFF',
+          600: '#0A2FE8',
+          700: '#0B24B5',
+          800: '#102292',
+          900: '#153D6F',
+          950: '#0F2C50',
+        },
+        
+        // Primary Color - Deep Blue (#153D6F)
         primary: {
           DEFAULT: '#153D6F',
           50: '#EBF2FF',
@@ -36,10 +84,10 @@ const config: Config = {
           700: '#0B24B5',
           800: '#102292',
           900: '#153D6F', // Main primary
-          950: '#0F2C50', // Hover/Active state
+          950: '#0F2C50', // Hover state
         },
         
-        // Enhanced Secondary Color System - Clean Neutrals
+        // Secondary Color - Clean White (#FFFFFF)
         secondary: {
           DEFAULT: '#FFFFFF',
           50: '#FFFFFF',
@@ -47,14 +95,14 @@ const config: Config = {
           200: '#FDFDFD',
           300: '#FCFCFC',
           400: '#FAFAFA',
-          500: '#F8F9FA', // Light backgrounds
-          600: '#F5F5F5', // Card backgrounds
+          500: '#F8F8F8',
+          600: '#F5F5F5', // Secondary card background
           700: '#F0F0F0',
-          800: '#E9ECEF', // Subtle borders
-          900: '#DEE2E6', // Defined borders
+          800: '#E8E8E8',
+          900: '#E0E0E0',
         },
         
-        // Enhanced Accent Color System - Soft Green
+        // Accent Color - Soft Green/Muted Teal (#6FBF73)
         accent: {
           DEFAULT: '#6FBF73',
           50: '#F0F9F1',
@@ -62,98 +110,87 @@ const config: Config = {
           200: '#BBE5BD',
           300: '#8DD491',
           400: '#6FBF73', // Main accent
-          500: '#5FA463', // Hover state
-          600: '#4CAF50', // Active state
-          700: '#43A047',
-          800: '#388E3C',
-          900: '#2E7D32',
+          500: '#4CAF50',
+          600: '#43A047',
+          700: '#388E3C',
+          800: '#2E7D32',
+          900: '#1B5E20',
         },
         
-        // Enhanced Neutral System - Better Hierarchy
+        // Neutral Tones - Light Gray
         neutral: {
-          DEFAULT: '#F8F9FA',
+          DEFAULT: '#F5F5F5',
           50: '#FAFAFA',
-          100: '#F8F9FA',
-          200: '#F5F5F5',
-          300: '#E9ECEF',
-          400: '#DEE2E6',
-          500: '#CED4DA',
-          600: '#ADB5BD',
-          700: '#6C757D',
-          800: '#495057',
-          900: '#343A40',
+          100: '#F5F5F5',
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#616161',
+          800: '#424242',
+          900: '#212121',
         },
         
-        // Enhanced Text Color System - WCAG Compliant
+        // Text Colors - Optimized for readability
         text: {
-          primary: '#1F2937',    // 16.8:1 contrast ratio (AAA)
-          secondary: '#374151',   // 12.6:1 contrast ratio (AAA)
-          muted: '#6B7280',      // 4.6:1 contrast ratio (AA)
-          disabled: '#9CA3AF',   // 3.1:1 contrast ratio
-          inverse: '#FFFFFF',    // For dark backgrounds
-          accent: '#153D6F',     // Brand color for links
+          primary: '#1F1F1F',    // Main content text
+          secondary: '#FFFFFF',   // Header/Footer text
+          muted: '#757575',      // Subtle text
+          disabled: '#BDBDBD',   // Disabled text
         },
         
-        // Enhanced Status Colors - Accessible & Clear
+        // Status Colors - Semantic colors
         success: {
-          DEFAULT: '#10B981',
-          light: '#6EE7B7',
-          dark: '#047857',
-          bg: '#ECFDF5',
-          border: '#A7F3D0',
+          DEFAULT: '#4CAF50',
+          light: '#81C784',
+          dark: '#388E3C',
         },
         warning: {
-          DEFAULT: '#F59E0B',
-          light: '#FCD34D',
-          dark: '#D97706',
-          bg: '#FFFBEB',
-          border: '#FDE68A',
+          DEFAULT: '#FF9800',
+          light: '#FFB74D',
+          dark: '#F57C00',
         },
         error: {
-          DEFAULT: '#EF4444',
-          light: '#F87171',
-          dark: '#DC2626',
-          bg: '#FEF2F2',
-          border: '#FECACA',
+          DEFAULT: '#F44336',
+          light: '#E57373',
+          dark: '#D32F2F',
         },
         info: {
-          DEFAULT: '#3B82F6',
-          light: '#60A5FA',
-          dark: '#2563EB',
-          bg: '#EFF6FF',
-          border: '#BFDBFE',
+          DEFAULT: '#2196F3',
+          light: '#64B5F6',
+          dark: '#1976D2',
         },
         
         // Component-specific colors
         card: {
           DEFAULT: '#FFFFFF',
-          foreground: '#1F2937',
-          secondary: '#F8F9FA',
-          border: '#E9ECEF',
+          foreground: '#1F1F1F',
+          secondary: '#F5F5F5',
         },
         popover: {
           DEFAULT: '#FFFFFF',
-          foreground: '#1F2937',
+          foreground: '#1F1F1F',
         },
         muted: {
-          DEFAULT: '#F8F9FA',
-          foreground: '#6B7280',
+          DEFAULT: '#F5F5F5',
+          foreground: '#757575',
         },
         destructive: {
-          DEFAULT: '#EF4444',
+          DEFAULT: '#F44336',
           foreground: '#FFFFFF',
         },
-        border: '#E9ECEF',
-        input: '#FFFFFF',
-        ring: '#6FBF73',
+        border: '#E0E0E0',
+        input: '#F5F5F5',
+        ring: '#153D6F',
         
-        // Chart colors - Brand aligned
+        // Chart colors
         chart: {
           '1': '#153D6F',
           '2': '#6FBF73',
-          '3': '#F59E0B',
-          '4': '#3B82F6',
-          '5': '#8B5CF6',
+          '3': '#FF9800',
+          '4': '#2196F3',
+          '5': '#9C27B0',
         },
       },
       keyframes: {
@@ -185,14 +222,6 @@ const config: Config = {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
-        'pulse-soft': {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.8' },
-        },
-        'scale-in': {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -202,15 +231,6 @@ const config: Config = {
         'slide-in-right': 'slide-in-right 0.6s ease-out',
         'float': 'float 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s linear infinite',
-        'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
-        'scale-in': 'scale-in 0.2s ease-out',
-      },
-      boxShadow: {
-        'soft': '0 2px 8px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 16px rgba(0, 0, 0, 0.08)',
-        'strong': '0 8px 32px rgba(0, 0, 0, 0.12)',
-        'accent': '0 4px 16px rgba(111, 191, 115, 0.2)',
-        'primary': '0 4px 16px rgba(21, 61, 111, 0.2)',
       },
     },
   },

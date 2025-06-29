@@ -43,7 +43,6 @@ const navigation = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   
   const { getProjectCategories, setFilters } = useProjectStore();
@@ -80,7 +79,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-md">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <span className="text-white font-bold text-lg lg:text-xl">M</span>
             </div>
             <div className="hidden sm:block">
@@ -96,56 +95,37 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
-              <div 
-                key={item.href} 
-                className="relative group"
-                onMouseEnter={() => item.submenu && setActiveDropdown(item.href)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
+              <div key={item.href} className="relative group">
                 {item.submenu ? (
                   <>
-                    <button className="flex items-center space-x-1 text-white hover:text-accent-400 focus:text-accent-400 active:text-accent-300 transition-colors duration-200 py-2 px-1 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-400/50">
+                    <button className="flex items-center space-x-1 text-white hover:text-accent-400 transition-colors duration-200 py-2">
                       <span className="font-medium">{item.name_en}</span>
-                      <ChevronDown className={cn(
-                        "w-4 h-4 transition-transform duration-200",
-                        activeDropdown === item.href && "rotate-180"
-                      )} />
+                      <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-200" />
                     </button>
-                    <AnimatePresence>
-                      {activeDropdown === item.href && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 overflow-hidden"
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-neutral-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-text-primary hover:bg-neutral-100 hover:text-primary-900 first:rounded-t-lg last:rounded-b-lg transition-colors duration-200"
                         >
-                          {item.submenu.map((subItem) => (
-                            <Link
-                              key={subItem.href}
-                              href={subItem.href}
-                              className="block px-4 py-3 text-sm text-text-primary hover:bg-primary-50 hover:text-primary-900 focus:bg-primary-50 focus:text-primary-900 active:bg-primary-100 transition-all duration-200 border-b border-neutral-100 last:border-b-0"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {subItem.name_en}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          {subItem.name_en}
+                        </Link>
+                      ))}
+                    </div>
                   </>
                 ) : (
                   <Link
                     href={item.href}
                     className={cn(
-                      "text-white hover:text-accent-400 focus:text-accent-400 active:text-accent-300 transition-colors duration-200 font-medium relative py-2 px-1 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-400/50",
+                      "text-white hover:text-accent-400 transition-colors duration-200 font-medium relative py-2",
                       pathname === item.href && "text-accent-400"
                     )}
                   >
                     {item.name_en}
                     {pathname === item.href && (
                       <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-400 rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-400"
                         layoutId="activeTab"
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -159,10 +139,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button 
-              asChild 
-              className="bg-accent-400 text-white hover:bg-accent-500 focus:bg-accent-500 active:bg-accent-600 border border-accent-500 hover:border-accent-600 shadow-md hover:shadow-lg"
-            >
+            <Button asChild className="bg-primary-900 text-white hover:bg-primary-950 border border-accent-400 hover:border-accent-300">
               <Link href="/contact">ចូលរួម Join Us</Link>
             </Button>
           </div>
@@ -170,18 +147,14 @@ export function Header() {
           {/* Mobile Menu Button */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="text-white hover:text-accent-400 hover:bg-primary-800 focus:bg-primary-800 active:bg-primary-700 border border-transparent hover:border-accent-400/30"
-              >
+              <Button variant="ghost" size="icon" className="text-white hover:text-accent-400 hover:bg-primary-800">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm bg-white border-l border-neutral-200">
+            <SheetContent side="right" className="w-full max-w-sm bg-white">
               <div className="flex flex-col space-y-6 mt-6">
                 <div className="flex items-center space-x-3 pb-6 border-b border-neutral-200">
-                  <div className="w-10 h-10 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center shadow-md">
+                  <div className="w-10 h-10 bg-gradient-to-br from-accent-400 to-primary-700 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-lg">M</span>
                   </div>
                   <div>
@@ -196,9 +169,9 @@ export function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "block text-lg font-medium py-2 transition-colors duration-200 rounded-md px-2 hover:bg-primary-50 focus:bg-primary-50 active:bg-primary-100",
+                          "block text-lg font-medium py-2 transition-colors duration-200",
                           pathname === item.href
-                            ? "text-primary-900 bg-primary-50"
+                            ? "text-primary-900"
                             : "text-text-primary hover:text-primary-900"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
@@ -211,7 +184,7 @@ export function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="block text-sm text-gray-600 hover:text-primary-900 focus:text-primary-900 active:text-primary-950 py-1 px-2 rounded transition-colors duration-200 hover:bg-primary-50 focus:bg-primary-50"
+                              className="block text-sm text-gray-600 hover:text-primary-900 py-1 transition-colors duration-200"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               {subItem.name}
@@ -224,10 +197,7 @@ export function Header() {
                 </nav>
                 
                 <div className="pt-6 border-t border-neutral-200">
-                  <Button 
-                    asChild 
-                    className="w-full bg-primary-900 text-white hover:bg-primary-950 focus:bg-primary-950 active:bg-primary-950 shadow-md hover:shadow-lg"
-                  >
+                  <Button asChild className="w-full bg-primary-900 text-white hover:bg-primary-950">
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                       ចូលរួម Join Us
                     </Link>
