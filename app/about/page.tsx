@@ -244,7 +244,7 @@ export default function AboutPage() {
 						</p>
 					</AnimatedSection>
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 						{values.map((value, index) => (
 							<AnimatedSection
 								key={value.title}
@@ -371,7 +371,7 @@ export default function AboutPage() {
 					</div>
 
 					{/* Three Column Service Features - Enhanced Responsive */}
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 						<AnimatedSection delay={0.1}>
 							<Card className="text-center p-6 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-blue-500">
 								<CardContent className="p-0">
@@ -437,47 +437,6 @@ export default function AboutPage() {
 											ចំណាប់អារម្មណ៍សាកលជាក្រុម និង
 											ការប្រតិបត្តិសេវាជាមួយជំនាញសាកល
 										</p>
-									</div>
-								</CardContent>
-							</Card>
-						</AnimatedSection>
-
-						<AnimatedSection delay={0.3}>
-							<Card className="text-center p-6 sm:p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-t-teal-500">
-								<CardContent className="p-0">
-									<div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-										<svg
-											className="w-6 h-6 sm:w-8 sm:h-8 text-white"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"
-											/>
-										</svg>
-									</div>
-									<h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-										គុណភាព
-									</h3>
-									<div className="space-y-2 sm:space-y-3 text-gray-600">
-										<div className="space-y-1 sm:space-y-2">
-											<div className="flex items-center justify-center">
-												<span className="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>
-												<span className="text-sm sm:text-base">ចិត្តកាន</span>
-											</div>
-											<div className="flex items-center justify-center">
-												<span className="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>
-												<span className="text-sm sm:text-base">សម្រាប់កាន</span>
-											</div>
-											<div className="flex items-center justify-center">
-												<span className="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>
-												<span className="text-sm sm:text-base">កម្រិតកាន</span>
-											</div>
-										</div>
 									</div>
 								</CardContent>
 							</Card>
@@ -580,7 +539,7 @@ export default function AboutPage() {
 						</p>
 					</AnimatedSection>
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
 						{[
 							{
 								name: "លោក មេត្តិយ",

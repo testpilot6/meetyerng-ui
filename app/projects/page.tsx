@@ -219,7 +219,7 @@ export default function ProjectsPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projectStats.map((stat, index) => (
               <MetricCard
                 key={stat.title}
@@ -290,7 +290,7 @@ export default function ProjectsPage() {
               {/* Projects Grid/List */}
               <div className={`grid gap-6 ${
                 viewMode === 'grid' 
-                  ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' 
+                  ? 'grid-cols-1 md:grid-cols-2' 
                   : 'grid-cols-1'
               }`}>
                 {filteredProjects.map((project, index) => (
