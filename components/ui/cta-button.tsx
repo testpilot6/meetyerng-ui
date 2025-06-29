@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 interface CTAButtonProps {
   href: string;
   children: React.ReactNode;
-  variant?: 'default' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'accent';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   external?: boolean;
@@ -17,17 +17,18 @@ interface CTAButtonProps {
 export function CTAButton({ 
   href, 
   children, 
-  variant = 'default', 
+  variant = 'primary', 
   size = 'md', 
   className,
   external = false 
 }: CTAButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900";
+  const baseClasses = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    default: "bg-primary-900 text-white hover:bg-primary-950 shadow-lg hover:shadow-xl",
-    outline: "border-2 border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white",
-    ghost: "text-primary-900 hover:bg-primary-100"
+    primary: "bg-primary-900 text-white hover:bg-primary-950 focus:ring-primary-900 border border-transparent hover:border-accent-400",
+    secondary: "bg-white text-primary-900 hover:bg-neutral-100 focus:ring-primary-900 border border-primary-900 hover:border-primary-950",
+    outline: "bg-transparent text-primary-900 hover:bg-primary-900 hover:text-white focus:ring-primary-900 border border-primary-900",
+    accent: "bg-accent-400 text-white hover:bg-accent-500 focus:ring-accent-400 border border-transparent hover:border-accent-600"
   };
   
   const sizes = {
@@ -52,9 +53,9 @@ export function CTAButton({
         target="_blank"
         rel="noopener noreferrer"
         className={buttonClasses}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.2 }}
       >
         {children}
       </motion.a>
@@ -65,9 +66,9 @@ export function CTAButton({
     <MotionLink
       href={href}
       className={buttonClasses}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2 }}
     >
       {children}
     </MotionLink>

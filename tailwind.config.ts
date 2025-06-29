@@ -22,51 +22,62 @@ const config: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        // Exact color specifications from the table
+        
+        // Primary Color - Deep Blue (#153D6F)
+        // Used for headers, navbar, footer, buttons, and focus elements
         primary: {
-          DEFAULT: '#153D6F', // Header/Footer background
-          50: '#F0F4F8',
-          100: '#D9E2EC',
-          200: '#BCCCDC',
-          300: '#9FB3C8',
-          400: '#829AB1',
-          500: '#627D98',
-          600: '#486581',
-          700: '#334E68',
-          800: '#243B53',
-          900: '#153D6F', // Main primary color
-          950: '#0F2C50', // Button hover
+          DEFAULT: '#153D6F',
+          50: '#EBF2FF',
+          100: '#D6E4FF',
+          200: '#B5CCFF',
+          300: '#83A9FF',
+          400: '#4A7CFF',
+          500: '#1E4FFF',
+          600: '#0A2FE8',
+          700: '#0B24B5',
+          800: '#102292',
+          900: '#153D6F', // Main primary
+          950: '#0F2C50', // Hover state
         },
+        
+        // Secondary Color - Clean White (#FFFFFF)
+        // Used for page backgrounds, card content, and visual balance
         secondary: {
-          DEFAULT: '#FFFFFF', // Main content background
+          DEFAULT: '#FFFFFF',
           50: '#FFFFFF',
-          100: '#F5F5F5', // Secondary card background
-          200: '#EEEEEE',
-          300: '#E0E0E0',
-          400: '#BDBDBD',
-          500: '#9E9E9E',
-          600: '#757575',
-          700: '#616161',
-          800: '#424242',
-          900: '#212121',
+          100: '#FEFEFE',
+          200: '#FDFDFD',
+          300: '#FCFCFC',
+          400: '#FAFAFA',
+          500: '#F8F8F8',
+          600: '#F5F5F5', // Secondary card background
+          700: '#F0F0F0',
+          800: '#E8E8E8',
+          900: '#E0E0E0',
         },
+        
+        // Accent Color - Soft Green/Muted Teal (#6FBF73)
+        // Used sparingly for highlights, icons, active states
         accent: {
-          DEFAULT: '#6FBF73', // Accent/Action color (optional green)
+          DEFAULT: '#6FBF73',
           50: '#F0F9F1',
           100: '#DCF2DD',
           200: '#BBE5BD',
           300: '#8DD491',
-          400: '#6FBF73', // Main accent color
+          400: '#6FBF73', // Main accent
           500: '#4CAF50',
           600: '#43A047',
           700: '#388E3C',
           800: '#2E7D32',
           900: '#1B5E20',
         },
+        
+        // Neutral Tones - Light Gray
+        // Used for dividers, background layers, inactive elements
         neutral: {
-          DEFAULT: '#F5F5F5', // Secondary card background
+          DEFAULT: '#F5F5F5',
           50: '#FAFAFA',
-          100: '#F5F5F5', // Secondary card
+          100: '#F5F5F5',
           200: '#EEEEEE',
           300: '#E0E0E0',
           400: '#BDBDBD',
@@ -76,36 +87,66 @@ const config: Config = {
           800: '#424242',
           900: '#212121',
         },
+        
+        // Text Colors - Optimized for readability
         text: {
-          primary: '#1F1F1F', // Main content text
-          secondary: '#FFFFFF', // Header/Footer text
-          muted: '#757575',
+          primary: '#1F1F1F',    // Main content text
+          secondary: '#FFFFFF',   // Header/Footer text
+          muted: '#757575',      // Subtle text
+          disabled: '#BDBDBD',   // Disabled text
         },
+        
+        // Status Colors - Semantic colors
+        success: {
+          DEFAULT: '#4CAF50',
+          light: '#81C784',
+          dark: '#388E3C',
+        },
+        warning: {
+          DEFAULT: '#FF9800',
+          light: '#FFB74D',
+          dark: '#F57C00',
+        },
+        error: {
+          DEFAULT: '#F44336',
+          light: '#E57373',
+          dark: '#D32F2F',
+        },
+        info: {
+          DEFAULT: '#2196F3',
+          light: '#64B5F6',
+          dark: '#1976D2',
+        },
+        
+        // Component-specific colors
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: '#FFFFFF',
+          foreground: '#1F1F1F',
+          secondary: '#F5F5F5',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: '#FFFFFF',
+          foreground: '#1F1F1F',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: '#F5F5F5',
+          foreground: '#757575',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: '#F44336',
+          foreground: '#FFFFFF',
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        border: '#E0E0E0',
+        input: '#F5F5F5',
+        ring: '#153D6F',
+        
+        // Chart colors
         chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
+          '1': '#153D6F',
+          '2': '#6FBF73',
+          '3': '#FF9800',
+          '4': '#2196F3',
+          '5': '#9C27B0',
         },
       },
       keyframes: {
