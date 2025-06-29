@@ -54,7 +54,7 @@ const contactInfo = [
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-primary-900 text-white">
       <div className="container section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Section */}
@@ -66,16 +66,16 @@ export function Footer() {
               className="space-y-4"
             >
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 bg-gradient-to-br from-khmer-gold to-khmer-red rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-primary-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <span className="text-white font-bold text-xl">M</span>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold gradient-text">Mettyerng</h2>
-                  <p className="text-sm text-gray-400">ក្រុមអ្នកស្រឡាញ់សង្គម</p>
+                  <h2 className="text-2xl font-bold text-white">Mettyerng</h2>
+                  <p className="text-sm text-gray-300">ក្រុមអ្នកស្រឡាញ់សង្គម</p>
                 </div>
               </Link>
               
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-300 text-sm leading-relaxed">
                 យើងជាក្រុមអ្នកស្រឡាញ់សង្គមដែលបានបង្កើតឡើងក្នុងគោលបំណង ជួយដល់សហគមន៍តាមរយៈការអប់រំ វប្បធម៌ និងការអភិវឌ្ឍន៍សង្គម។
               </p>
               
@@ -87,7 +87,7 @@ export function Footer() {
                     variant="ghost"
                     size="icon"
                     asChild
-                    className={`text-gray-400 ${social.color} hover:bg-gray-800 transition-all duration-300`}
+                    className={`text-gray-300 ${social.color} hover:bg-primary-800 transition-all duration-300`}
                   >
                     <Link href={social.href} target="_blank" rel="noopener noreferrer">
                       <social.icon className="w-5 h-5" />
@@ -113,7 +113,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-khmer-gold transition-colors duration-200 text-sm"
+                      className="text-gray-300 hover:text-accent-400 transition-colors duration-200 text-sm"
                     >
                       {link.name_en}
                     </Link>
@@ -124,7 +124,7 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="my-12 bg-gray-700" />
+        <Separator className="my-12 bg-primary-700" />
 
         {/* Contact Info & Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -140,7 +140,7 @@ export function Footer() {
                 <Link
                   key={index}
                   href={item.href}
-                  className="flex items-center space-x-3 text-gray-400 hover:text-khmer-gold transition-colors duration-200 group"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-accent-400 transition-colors duration-200 group"
                 >
                   <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                   <span className="text-sm">{item.text}</span>
@@ -156,23 +156,23 @@ export function Footer() {
             className="space-y-4"
           >
             <h3 className="text-lg font-semibold text-white mb-4">ព័ត៌មានថ្មី Newsletter</h3>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4">
               ចុះឈ្មោះទទួលព័ត៌មានថ្មីៗ និងសកម្មភាពរបស់យើង
             </p>
             <div className="flex space-x-2">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-khmer-gold focus:border-transparent"
+                className="flex-1 px-4 py-2 bg-primary-800 border border-primary-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
-              <Button className="bg-gradient-to-r from-khmer-gold to-khmer-red hover:from-khmer-gold-dark hover:to-khmer-red-dark">
+              <Button className="bg-gradient-to-r from-accent-500 to-primary-600 hover:from-accent-600 hover:to-primary-700">
                 Subscribe
               </Button>
             </div>
           </motion.div>
         </div>
 
-        <Separator className="my-8 bg-gray-700" />
+        <Separator className="my-8 bg-primary-700" />
 
         {/* Copyright */}
         <motion.div
@@ -181,14 +181,14 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-300 text-sm">
             © {new Date().getFullYear()} Mettyerng. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link href="/privacy" className="text-gray-400 hover:text-khmer-gold transition-colors duration-200">
+            <Link href="/privacy" className="text-gray-300 hover:text-accent-400 transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-khmer-gold transition-colors duration-200">
+            <Link href="/terms" className="text-gray-300 hover:text-accent-400 transition-colors duration-200">
               Terms of Service
             </Link>
           </div>

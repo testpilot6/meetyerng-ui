@@ -92,7 +92,7 @@ export function HeroCarousel() {
                   style={{ objectFit: 'cover' }}
                 />
                 <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-900/80 via-primary-800/50 to-transparent" />
               </div>
 
               {/* Content */}
@@ -116,7 +116,7 @@ export function HeroCarousel() {
                         </motion.h1>
                         
                         <motion.p
-                          className="text-lg sm:text-xl md:text-2xl text-khmer-gold font-semibold"
+                          className="text-lg sm:text-xl md:text-2xl text-accent-400 font-semibold"
                           initial={{ opacity: 0, x: -30 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
@@ -143,7 +143,7 @@ export function HeroCarousel() {
                         <CTAButton
                           href={slide.ctaLink}
                           size="lg"
-                          className="group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                          className="group text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-700 to-accent-500 hover:from-primary-800 hover:to-accent-600"
                         >
                           {slide.cta}
                           <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -166,7 +166,7 @@ export function HeroCarousel() {
 
               {/* Floating Elements */}
               <motion.div
-                className="absolute top-1/4 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-khmer-gold/20 rounded-full blur-xl"
+                className="absolute top-1/4 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-accent-500/20 rounded-full blur-xl"
                 animate={{ 
                   y: [0, -20, 0],
                   scale: [1, 1.1, 1]
@@ -179,7 +179,7 @@ export function HeroCarousel() {
               />
               
               <motion.div
-                className="absolute bottom-1/4 right-1/4 w-12 h-12 sm:w-16 sm:h-16 bg-khmer-red/20 rounded-full blur-xl"
+                className="absolute bottom-1/4 right-1/4 w-12 h-12 sm:w-16 sm:h-16 bg-primary-600/20 rounded-full blur-xl"
                 animate={{ 
                   y: [0, 15, 0],
                   x: [0, 10, 0],

@@ -72,7 +72,7 @@ export default function HomePage() {
 			<HeroCarousel />
 
 			{/* Stats Section */}
-			<section className="section-padding bg-gray-50">
+			<section className="section-padding bg-neutral-50">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -124,7 +124,7 @@ export default function HomePage() {
 										<ArrowRight className="ml-2 w-5 h-5" />
 									</CTAButton>
 
-									<Button variant="outline" size="lg" asChild>
+									<Button variant="outline" size="lg" asChild className="border-primary-800 text-primary-800 hover:bg-primary-800 hover:text-white">
 										<a href="/contact" className="flex items-center">
 											<Heart className="mr-2 w-5 h-5" />
 											Join Our Mission
@@ -151,20 +151,20 @@ export default function HomePage() {
 										whileTap={{ scale: 0.95 }}
 									>
 										<div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-											<Play className="w-6 h-6 text-khmer-gold ml-1" />
+											<Play className="w-6 h-6 text-primary-800 ml-1" />
 										</div>
 									</motion.button>
 								</div>
 
 								{/* Floating elements */}
 								<motion.div
-									className="absolute -top-4 -right-4 w-24 h-24 bg-khmer-gold/20 rounded-full blur-2xl"
+									className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500/20 rounded-full blur-2xl"
 									animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
 									transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
 								/>
 
 								<motion.div
-									className="absolute -bottom-6 -left-6 w-32 h-32 bg-khmer-red/20 rounded-full blur-2xl"
+									className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-600/20 rounded-full blur-2xl"
 									animate={{ scale: [1.2, 1, 1.2], rotate: [360, 180, 0] }}
 									transition={{
 										duration: 10,
@@ -179,7 +179,7 @@ export default function HomePage() {
 			</section>
 
 			{/* Features Section */}
-			<section className="section-padding bg-gray-50">
+			<section className="section-padding bg-neutral-50">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -218,7 +218,7 @@ export default function HomePage() {
 										<Button
 											variant="ghost"
 											asChild
-											className="p-0 h-auto text-khmer-gold hover:text-khmer-gold-dark"
+											className="p-0 h-auto text-primary-800 hover:text-accent-500"
 										>
 											<a
 												href={feature.link}
@@ -237,7 +237,7 @@ export default function HomePage() {
 			</section>
 
 			{/* CTA Section */}
-			<section className="section-padding bg-gradient-to-br from-khmer-gold via-khmer-red to-khmer-blue relative overflow-hidden">
+			<section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-accent-600 relative overflow-hidden">
 				<div className="absolute inset-0">
 					<div className="absolute inset-0 bg-black/40" />
 					<div
@@ -254,7 +254,7 @@ export default function HomePage() {
 					<AnimatedSection className="text-center text-white">
 						<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
 							ចូលរួមជាមួយយើង
-							<span className="block text-2xl md:text-3xl lg:text-4xl mt-2 text-khmer-gold">
+							<span className="block text-2xl md:text-3xl lg:text-4xl mt-2 text-accent-400">
 								Join Our Community
 							</span>
 						</h2>
@@ -268,7 +268,7 @@ export default function HomePage() {
 							<CTAButton
 								href="/contact"
 								size="lg"
-								className="bg-white text-khmer-gold hover:bg-gray-100 text-lg px-8 py-4"
+								className="bg-white text-primary-800 hover:bg-neutral-100 text-lg px-8 py-4"
 							>
 								<Heart className="mr-2 w-6 h-6" />
 								Become a Volunteer
@@ -278,7 +278,7 @@ export default function HomePage() {
 								href="/projects"
 								variant="outline"
 								size="lg"
-								className="border-white text-white hover:bg-white hover:text-khmer-gold text-lg px-8 py-4"
+								className="border-white text-white hover:bg-white hover:text-primary-800 text-lg px-8 py-4"
 							>
 								<Award className="mr-2 w-6 h-6" />
 								View Our Projects
