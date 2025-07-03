@@ -2,45 +2,56 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
-  delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
+  delay?: number;
   duration?: number;
 }
 
-export function AnimatedSection({
-  children,
-  className,
+export function AnimatedSection({ 
+  children, 
+  className = "", 
+  direction = 'up', 
   delay = 0,
-  direction = 'up',
-  duration = 0.6,
+  duration = 0.6 
 }: AnimatedSectionProps) {
-  const getInitialPosition = () => {
-    switch (direction) {
-      case 'up':
-        return { opacity: 0, y: 30 };
-      case 'down':
-        return { opacity: 0, y: -30 };
-      case 'left':
-        return { opacity: 0, x: -30 };
-      case 'right':
-        return { opacity: 0, x: 30 };
-      default:
-        return { opacity: 0, y: 30 };
-    }
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  const directions = {
+    up: { y: 30, x: 0 },
+    down: { y: -30, x: 0 },
+    left: { y: 0, x: 30 },
+    right: { y: 0, x: -30 }
   };
 
   return (
     <motion.div
-      initial={getInitialPosition()}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration, delay }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={cn(className)}
+      ref={ref}
+      initial={{ 
+        opacity: 0, 
+        ...directions[direction]
+      }}
+      animate={isIntersecting ? { 
+        opacity: 1, 
+        y: 0, 
+        x: 0 
+      } : { 
+        opacity: 0, 
+        ...directions[direction]
+      }}
+      transition={{ 
+        duration, 
+        delay,
+        ease: [0.25, 0.25, 0.25, 0.75]
+      }}
+      className={className}
     >
       {children}
     </motion.div>
