@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Heart } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -58,7 +58,7 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
           ? "bg-white/95 backdrop-blur-xl shadow-soft border-b border-border/50"
-          : "bg-primary"
+          : "bg-transparent"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -73,8 +73,16 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-full h-full bg-accent rounded-xl flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
-                <span className="text-foreground font-bold text-lg lg:text-xl">M</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-accent to-secondary rounded-xl group-hover:shadow-glow transition-all duration-300" />
+              <div className="relative w-full h-full bg-gradient-to-br from-accent to-secondary rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg lg:text-xl">M</span>
+                <motion.div
+                  className="absolute -top-1 -right-1 w-3 h-3"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
+                  <Sparkles className="w-3 h-3 text-secondary" />
+                </motion.div>
               </div>
             </motion.div>
             <div className="hidden sm:block">
@@ -102,7 +110,7 @@ export function Header() {
                     <button className={cn(
                       "flex items-center space-x-1 px-4 py-2 rounded-lg font-medium transition-all duration-200",
                       isScrolled 
-                        ? "text-foreground/80 hover:text-primary hover:bg-muted/50" 
+                        ? "text-foreground/80 hover:text-accent hover:bg-muted/50" 
                         : "text-white/90 hover:text-white hover:bg-white/10"
                     )}>
                       <span>{item.name_en}</span>
@@ -114,7 +122,7 @@ export function Header() {
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block px-4 py-3 text-sm text-foreground hover:bg-muted hover:text-primary rounded-lg transition-all duration-200"
+                            className="block px-4 py-3 text-sm text-foreground hover:bg-muted hover:text-accent rounded-lg transition-all duration-200"
                           >
                             {subItem.name_en}
                           </Link>
@@ -129,10 +137,10 @@ export function Header() {
                       "relative px-4 py-2 rounded-lg font-medium transition-all duration-200",
                       pathname === item.href 
                         ? isScrolled 
-                          ? "text-primary bg-accent/10" 
+                          ? "text-accent bg-accent/10" 
                           : "text-white bg-white/20"
                         : isScrolled
-                          ? "text-foreground/80 hover:text-primary hover:bg-muted/50"
+                          ? "text-foreground/80 hover:text-accent hover:bg-muted/50"
                           : "text-white/90 hover:text-white hover:bg-white/10"
                     )}
                   >
@@ -141,7 +149,7 @@ export function Header() {
                       <motion.div
                         className={cn(
                           "absolute bottom-0 left-4 right-4 h-0.5 rounded-full",
-                          isScrolled ? "bg-primary" : "bg-white"
+                          isScrolled ? "bg-accent" : "bg-white"
                         )}
                         layoutId="activeTab"
                         initial={false}
@@ -158,11 +166,11 @@ export function Header() {
           <div className="hidden lg:block">
             <Button 
               asChild 
-              className="bg-accent hover:bg-accent-600 text-foreground border-0 shadow-soft hover:shadow-glow transition-all duration-300 font-medium"
+              className="bg-gradient-to-r from-accent to-secondary hover:from-accent/90 hover:to-secondary/90 text-white border-0 shadow-soft hover:shadow-glow transition-all duration-300"
             >
               <Link href="/contact" className="flex items-center space-x-2">
                 <span>ចូលរួម Join Us</span>
-                <Heart className="w-4 h-4" />
+                <Sparkles className="w-4 h-4" />
               </Link>
             </Button>
           </div>
@@ -176,7 +184,7 @@ export function Header() {
                 className={cn(
                   "transition-colors duration-300",
                   isScrolled 
-                    ? "text-foreground hover:text-primary hover:bg-muted" 
+                    ? "text-foreground hover:text-accent hover:bg-muted" 
                     : "text-white hover:text-white hover:bg-white/20"
                 )}
               >
@@ -208,8 +216,8 @@ export function Header() {
             <SheetContent side="right" className="w-full max-w-sm bg-white/95 backdrop-blur-xl border-l border-border/50">
               <div className="flex flex-col space-y-6 mt-6">
                 <div className="flex items-center space-x-3 pb-6 border-b border-border">
-                  <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center">
-                    <span className="text-foreground font-bold text-lg">M</span>
+                  <div className="w-10 h-10 bg-gradient-to-br from-accent to-secondary rounded-xl flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">M</span>
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-primary">Mettyerng</h2>
@@ -230,8 +238,8 @@ export function Header() {
                         className={cn(
                           "block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-200",
                           pathname === item.href
-                            ? "text-primary bg-accent/10"
-                            : "text-foreground hover:text-primary hover:bg-muted"
+                            ? "text-accent bg-accent/10"
+                            : "text-foreground hover:text-accent hover:bg-muted"
                         )}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -243,7 +251,7 @@ export function Header() {
                             <Link
                               key={subItem.href}
                               href={subItem.href}
-                              className="block text-sm text-muted-foreground hover:text-primary py-2 px-4 rounded-lg transition-colors duration-200"
+                              className="block text-sm text-muted-foreground hover:text-accent py-2 px-4 rounded-lg transition-colors duration-200"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
                               {subItem.name}
@@ -258,11 +266,11 @@ export function Header() {
                 <div className="pt-6 border-t border-border">
                   <Button 
                     asChild 
-                    className="w-full bg-accent hover:bg-accent-600 text-foreground shadow-soft"
+                    className="w-full bg-gradient-to-r from-accent to-secondary hover:from-accent/90 hover:to-secondary/90 text-white shadow-soft"
                   >
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center space-x-2">
                       <span>ចូលរួម Join Us</span>
-                      <Heart className="w-4 h-4" />
+                      <Sparkles className="w-4 h-4" />
                     </Link>
                   </Button>
                 </div>

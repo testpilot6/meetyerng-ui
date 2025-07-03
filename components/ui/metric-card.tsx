@@ -1,82 +1,64 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { DivideIcon as LucideIcon } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import React from "react";
+import { motion } from "framer-motion";
+import { DivideIcon as LucideIcon } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface MetricCardProps {
-  title: string;
-  value: number;
-  suffix?: string;
-  icon: LucideIcon;
-  description: string;
-  delay?: number;
-  color?: string;
+	title: string;
+	value: number;
+	suffix?: string;
+	icon: typeof LucideIcon;
+	description: string;
+	delay?: number;
 }
 
-export function MetricCard({ 
-  title, 
-  value, 
-  suffix = "", 
-  icon: Icon, 
-  description, 
-  delay = 0,
-  color = "from-primary to-primary/80"
+export function MetricCard({
+	title,
+	value,
+	suffix = "",
+	icon: Icon,
+	description,
+	delay = 0,
 }: MetricCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay }}
-      className="group"
-    >
-      <Card className="card-elevated hover:shadow-glow transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-        <CardContent className="p-6 relative">
-          {/* Background gradient */}
-          <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${color} opacity-10 rounded-bl-3xl`} />
-          
-          <div className="flex items-start justify-between mb-4">
-            <div className={`w-12 h-12 bg-gradient-to-br ${color} rounded-xl flex items-center justify-center shadow-soft group-hover:scale-110 transition-transform duration-300`}>
-              <Icon className="w-6 h-6 text-white" />
-            </div>
-            <motion.div
-              className="text-right"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: delay + 0.2 }}
-            >
-              <motion.div 
-                className="text-3xl font-bold text-primary"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: delay + 0.4 }}
-              >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: delay + 0.6 }}
-                >
-                  {value}
-                </motion.span>
-                <span className="text-accent">{suffix}</span>
-              </motion.div>
-            </motion.div>
-          </div>
-          
-          <div className="space-y-2">
-            <h3 className="font-semibold text-primary text-lg leading-tight">
-              {title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {description}
-            </p>
-          </div>
+	return (
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.6, delay }}
+			viewport={{ once: true }}
+			whileHover={{ y: -5 }}
+		>
+			<Card className="text-center hover:shadow-xl transition-all duration-300 group">
+				<CardContent className="p-6">
+					<div className="w-16 h-16 bg-gradient-to-br from-khmer-gold to-khmer-red rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+						<Icon className="w-8 h-8 text-white" />
+					</div>
 
-          {/* Hover effect overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
+					<motion.div
+						initial={{ scale: 0 }}
+						whileInView={{ scale: 1 }}
+						transition={{ duration: 0.5, delay: delay + 0.2 }}
+						viewport={{ once: true }}
+						className="text-3xl font-bold text-gray-900 mb-2"
+					>
+						<motion.span
+							initial={{ opacity: 0 }}
+							whileInView={{ opacity: 1 }}
+							transition={{ duration: 0.5, delay: delay + 0.4 }}
+							viewport={{ once: true }}
+						>
+							{value}
+						</motion.span>
+						<span className="text-khmer-gold">{suffix}</span>
+					</motion.div>
+
+					<h3 className="text-lg font-semibold text-gray-900 mb-1">{title}</h3>
+
+					<p className="text-gray-600 text-sm">{description}</p>
+				</CardContent>
+			</Card>
+		</motion.div>
+	);
 }
