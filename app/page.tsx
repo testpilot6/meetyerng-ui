@@ -75,7 +75,7 @@ export default function HomePage() {
 			<section className="section-padding bg-neutral-100">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+						<h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
 							ជោគជ័យរបស់យើង
 							<span className="block text-2xl md:text-3xl gradient-text mt-2">
 								Our Achievements
@@ -101,7 +101,7 @@ export default function HomePage() {
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 						<AnimatedSection direction="left">
 							<div className="space-y-6">
-								<h2 className="text-3xl md:text-4xl font-bold text-text-primary">
+								<h2 className="text-3xl md:text-4xl font-bold text-primary">
 									បេសកកម្មរបស់យើង
 									<span className="block text-2xl md:text-3xl gradient-text mt-2">
 										Our Mission
@@ -182,7 +182,7 @@ export default function HomePage() {
 			<section className="section-padding bg-neutral-100">
 				<div className="container">
 					<AnimatedSection className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+						<h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
 							វិស័យសកម្មភាព
 							<span className="block text-2xl md:text-3xl gradient-text mt-2">
 								Our Focus Areas
@@ -209,7 +209,7 @@ export default function HomePage() {
 										/>
 									</div>
 									<CardContent className="p-6">
-										<h3 className="text-xl font-bold text-text-primary mb-3 gradient-text">
+										<h3 className="text-xl font-bold text-primary mb-3 gradient-text">
 											{feature.title}
 										</h3>
 										<p className="text-gray-600 leading-relaxed mb-4">
