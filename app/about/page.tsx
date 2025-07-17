@@ -524,6 +524,204 @@ export default function AboutPage() {
 				</div>
 			</section>
 
+			{/* Partners Section */}
+			<section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+				<div className="container px-4 sm:px-6 lg:px-8">
+					<AnimatedSection className="text-center mb-12 sm:mb-16">
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+							ដៃគូរបស់យើង
+							<span className="block text-xl sm:text-2xl md:text-3xl gradient-text mt-2">
+								Our Trusted Partners
+							</span>
+						</h2>
+						<p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
+							យើងមានមោទនភាពក្នុងការធ្វើការជាមួយដៃគូដ៏ពិសេសទាំងនេះ ដើម្បីកសាងសហគមន៍ដ៏រឹងមាំ
+						</p>
+					</AnimatedSection>
+
+					{/* Partner Tiers */}
+					<div className="space-y-12 sm:space-y-16">
+						{/* Platinum Partners */}
+						<AnimatedSection delay={0.1}>
+							<div className="text-center mb-8">
+								<h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+									Platinum Partners
+								</h3>
+								<div className="w-24 h-1 bg-gradient-to-r from-gray-300 to-gray-500 mx-auto rounded-full"></div>
+							</div>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+								{[
+									{
+										name: "Cambodia Development Bank",
+										logo: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+										description: "Leading financial institution supporting community development",
+										partnership: "Since 2020",
+										impact: "25+ Projects Supported"
+									},
+									{
+										name: "Royal University Foundation",
+										logo: "https://images.pexels.com/photos/3184466/pexels-photo-3184466.jpeg?auto=compress&cs=tinysrgb&w=400",
+										description: "Educational excellence and research advancement",
+										partnership: "Since 2019",
+										impact: "500+ Students Benefited"
+									}
+								].map((partner, index) => (
+									<motion.div
+										key={partner.name}
+										className="group relative bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-500 overflow-hidden"
+										whileHover={{ y: -8 }}
+										initial={{ opacity: 0, y: 20 }}
+										animate={{ opacity: 1, y: 0 }}
+										transition={{ delay: index * 0.1 }}
+									>
+										<div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+										<div className="relative p-8">
+											<div className="flex items-center space-x-6 mb-6">
+												<div className="w-20 h-20 rounded-xl overflow-hidden shadow-medium group-hover:shadow-large transition-shadow duration-300">
+													<img
+														src={partner.logo}
+														alt={partner.name}
+														className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+													/>
+												</div>
+												<div className="flex-1">
+													<h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-khmer-gold transition-colors">
+														{partner.name}
+													</h4>
+													<p className="text-gray-600 text-sm leading-relaxed">
+														{partner.description}
+													</p>
+												</div>
+											</div>
+											<div className="flex items-center justify-between text-sm">
+												<div className="flex items-center space-x-4">
+													<span className="text-gray-500">{partner.partnership}</span>
+													<span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+													<span className="text-khmer-gold font-medium">{partner.impact}</span>
+												</div>
+												<motion.div
+													className="w-8 h-8 bg-khmer-gold/10 rounded-full flex items-center justify-center group-hover:bg-khmer-gold group-hover:text-white transition-all duration-300"
+													whileHover={{ scale: 1.1 }}
+												>
+													<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+														<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+													</svg>
+												</motion.div>
+											</div>
+										</div>
+									</motion.div>
+								))}
+							</div>
+						</AnimatedSection>
+
+						{/* Gold Partners */}
+						<AnimatedSection delay={0.2}>
+							<div className="text-center mb-8">
+								<h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+									Gold Partners
+								</h3>
+								<div className="w-24 h-1 bg-gradient-to-r from-secondary to-secondary/80 mx-auto rounded-full"></div>
+							</div>
+							<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+								{[
+									{
+										name: "Khmer Heritage Foundation",
+										logo: "https://images.pexels.com/photos/3184467/pexels-photo-3184467.jpeg?auto=compress&cs=tinysrgb&w=300"
+									},
+									{
+										name: "Green Future Cambodia",
+										logo: "https://images.pexels.com/photos/3184468/pexels-photo-3184468.jpeg?auto=compress&cs=tinysrgb&w=300"
+									},
+									{
+										name: "Tech for Good",
+										logo: "https://images.pexels.com/photos/3184469/pexels-photo-3184469.jpeg?auto=compress&cs=tinysrgb&w=300"
+									},
+									{
+										name: "Community First",
+										logo: "https://images.pexels.com/photos/3184470/pexels-photo-3184470.jpeg?auto=compress&cs=tinysrgb&w=300"
+									}
+								].map((partner, index) => (
+									<motion.div
+										key={partner.name}
+										className="group bg-white rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 p-6 text-center"
+										whileHover={{ y: -4 }}
+										initial={{ opacity: 0, scale: 0.9 }}
+										animate={{ opacity: 1, scale: 1 }}
+										transition={{ delay: index * 0.1 }}
+									>
+										<div className="w-16 h-16 mx-auto mb-4 rounded-lg overflow-hidden shadow-sm group-hover:shadow-medium transition-shadow duration-300">
+											<img
+												src={partner.logo}
+												alt={partner.name}
+												className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+											/>
+										</div>
+										<h4 className="text-sm font-semibold text-gray-900 group-hover:text-secondary transition-colors">
+											{partner.name}
+										</h4>
+									</motion.div>
+								))}
+							</div>
+						</AnimatedSection>
+
+						{/* Supporting Partners */}
+						<AnimatedSection delay={0.3}>
+							<div className="text-center mb-8">
+								<h3 className="text-lg font-semibold text-gray-700 mb-4">
+									Supporting Partners
+								</h3>
+							</div>
+							<div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity duration-300">
+								{[
+									"https://images.pexels.com/photos/3184471/pexels-photo-3184471.jpeg?auto=compress&cs=tinysrgb&w=200",
+									"https://images.pexels.com/photos/3184472/pexels-photo-3184472.jpeg?auto=compress&cs=tinysrgb&w=200",
+									"https://images.pexels.com/photos/3184473/pexels-photo-3184473.jpeg?auto=compress&cs=tinysrgb&w=200",
+									"https://images.pexels.com/photos/3184474/pexels-photo-3184474.jpeg?auto=compress&cs=tinysrgb&w=200",
+									"https://images.pexels.com/photos/3184475/pexels-photo-3184475.jpeg?auto=compress&cs=tinysrgb&w=200",
+									"https://images.pexels.com/photos/3184476/pexels-photo-3184476.jpeg?auto=compress&cs=tinysrgb&w=200"
+								].map((logo, index) => (
+									<motion.div
+										key={index}
+										className="w-12 h-12 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-300"
+										whileHover={{ scale: 1.1 }}
+									>
+										<img
+											src={logo}
+											alt={`Partner ${index + 1}`}
+											className="w-full h-full object-cover"
+										/>
+									</motion.div>
+								))}
+							</div>
+						</AnimatedSection>
+					</div>
+
+					{/* Partnership CTA */}
+					<AnimatedSection delay={0.4} className="text-center mt-16">
+						<div className="bg-gradient-to-br from-khmer-gold/10 to-khmer-red/10 rounded-2xl p-8 md:p-12">
+							<h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+								ចូលរួមជាដៃគូ
+								<span className="block text-lg md:text-xl text-khmer-gold mt-2">
+									Become Our Partner
+								</span>
+							</h3>
+							<p className="text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+								ចូលរួមជាមួយយើងក្នុងការកសាងសហគមន៍ដ៏រឹងមាំ និងបង្កើតផលប៉ះពាល់វិជ្ជមានដល់សង្គម
+							</p>
+							<div className="flex flex-col sm:flex-row gap-4 justify-center">
+								<Button className="bg-gradient-to-r from-khmer-gold to-khmer-red hover:from-khmer-gold/90 hover:to-khmer-red/90 text-white px-8 py-3">
+									<Heart className="mr-2 w-5 h-5" />
+									Partner With Us
+								</Button>
+								<Button variant="outline" className="border-khmer-gold text-khmer-gold hover:bg-khmer-gold hover:text-white px-8 py-3">
+									Learn More
+								</Button>
+							</div>
+						</div>
+					</AnimatedSection>
+				</div>
+			</section>
+
 			{/* Team Section - Enhanced Responsive */}
 			<section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-khmer-gold/10 to-khmer-red/10">
 				<div className="container px-4 sm:px-6 lg:px-8">
